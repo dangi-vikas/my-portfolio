@@ -2,6 +2,13 @@ import React from "react";
 import { MdOutlineEmail } from "react-icons/md";
 import { CiLinkedin } from "react-icons/ci";
 import { FaGithub } from "react-icons/fa";
+import {
+  EMAIL,
+  GITHUB,
+  GITHUB_LINK,
+  LINKED__LINK,
+  LINKED_IN,
+} from "../../Constants";
 
 const Footer = () => {
   return (
@@ -19,15 +26,15 @@ const Footer = () => {
       <ul className="text-sm md:text-xl">
         <li className="flex gap-1 items-center">
           <MdOutlineEmail size={20} />
-          mvikasdangi@gmail.com
+          {EMAIL}
         </li>
         <li className="flex gap-1 items-center">
           <CiLinkedin />
-          linkdlin.com/vikasdangi
+          <a href={LINKED__LINK}>{LINKED_IN}</a>
         </li>
         <li className="flex gap-1 items-center">
           <FaGithub />
-          github.com/dangi-vikas
+          <a href={GITHUB_LINK}>{GITHUB}</a>
         </li>
       </ul>
     </div>

@@ -4,7 +4,6 @@ import Footer from "./Components/Footer/Footer";
 import Home from "./Components/Home/Home";
 import Navbar from "./Components/Navbar/Navbar";
 import Projects from "./Components/Projects/Projects";
-import TextChange from "./Components/TextChange";
 
 function App() {
   return (
