@@ -9,14 +9,17 @@ const Projects = () => {
         <ProjectCard
           title="NexGen"
           main="Pharmacy dispensing application"
+          link=""
         />
         <ProjectCard
           title="Star App"
           main="Shift allowance calculator application"
+          link="https://github.com/mangat00/Star-App"
         />
         <ProjectCard
           title="Reddit Clone"
           main="Clone application for Reddit"
+          link="https://github.com/dangi-vikas/reddit-clone"
         />
       </div>
     </div>

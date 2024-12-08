@@ -5,6 +5,7 @@ import { VscAzureDevops } from "react-icons/vsc";
 import TCSLogo from "../../assets/tcs_logo.png";
 import IncedoLogo from "../../assets/incedo_logo.jpg";
 import { INCEDO_EXP, TCS_EXP } from "../../Constants";
+import { CgChevronDoubleRight } from "react-icons/cg";
 
 const Experience = () => {
   return (
@@ -40,23 +41,30 @@ const Experience = () => {
             <VscAzureDevops color="#1572B6" size={50} />
           </span>
         </div>
-        <div>
+        <div  >
           <div className="flex gap-10 bg-slate-950 bg-opacity-45 mt-4 rounded-lg p-4 items-center">
-            <img src={TCSLogo} className="sm:h-7" />
+            <img src={TCSLogo} className="h-7" />
             <span className="text-white">
               <h2 className="leading-tight">Java Developer , TCS</h2>
               <p className="text-sm leading-tight font-thin">
                 August 2022 - Present
               </p>
-              <ul className="text-sm p-2">
-              {TCS_EXP.map((desc) => (
-                  <li>{desc}</li>
+              <ul className="text-sm py-2">
+                {TCS_EXP.map((desc) => (
+                  <li className="flex">
+                    <CgChevronDoubleRight
+                      color="#5382a1"
+                      size={15}
+                      className="mt-0.5 mr-0.5"
+                    />
+                    {desc}
+                  </li>
                 ))}
               </ul>
             </span>
           </div>
           <div className="flex gap-10 bg-slate-950 bg-opacity-45 mt-4 rounded-lg  p-4 items-center">
-            <img src={IncedoLogo} className="sm:h-10" />
+            <img src={IncedoLogo} className="h-10" />
             <span className="text-white">
               <h2 className="leading-tight">
                 Software Engineer Intern, Incedo
@@ -64,9 +72,16 @@ const Experience = () => {
               <p className="text-sm leading-tight font-thin">
                 January 2022 - July 2022
               </p>
-              <ul className="text-sm p-2">
+              <ul className="text-sm py-2">
                 {INCEDO_EXP.map((desc) => (
-                  <li>{desc}</li>
+                  <li className="flex">
+                    <CgChevronDoubleRight
+                      color="#5382a1"
+                      size={15}
+                      className="mt-0.5 mr-0.5"
+                    />
+                    {desc}
+                  </li>
                 ))}
               </ul>
             </span>

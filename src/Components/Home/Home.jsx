@@ -10,7 +10,7 @@ const Home = () => {
         <h1 className="text-3xl md:text-6xl font-bold flex leading-normal tracking-tighter">
           <TextChange />
         </h1>
-        <p className="text-sm md:text-2xl tracking-tight">
+        <p className="text-sm md:text-xl pt-5 tracking-tight">
           {HOME_DESC}
         </p>
         <a href="#contact">
