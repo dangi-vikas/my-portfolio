@@ -1,21 +1,88 @@
 import React from "react";
-import bannerImg from "../../assets/project-bg.webp"
-const ProjectCard = ({ title, main, link }) => {
+import Reveal from "../ui/Reveal";
+import { ExternalIcon, GithubIcon, ChevronRight } from "../ui/Icons";
+import Snap2StayVisual from "./Snap2StayVisual";
+import NexGenVisual from "./NexGenVisual";
+
+const VISUALS = {
+  snap2stay: Snap2StayVisual,
+  nexgen: NexGenVisual,
+};
+
+const ProjectCard = ({ project, index }) => {
+  const Visual = VISUALS[project.visual] || Snap2StayVisual;
+  const featured = project.featured;
+
   return (
-    <div className="p-3 md:p-6 flex flex-col w-80 bg-[#0c0e19] shadow-xl shadow-slate-900 rounded-2xl">
-      <img className="p-4" src={bannerImg} alt="" />
-      <h3 className="px-4 text-xl md:text-2xl font-bold leading-normal">
-        {title}
-      </h3>
-      <p className="px-4 text-sm md:text-md leading-tight py-2">{main}</p>
-      <div className="mt-2 p-2 md:p-4 flex gap-2 md:gap-4">
-        <a href={link}>
-        <button className="md:mt-10 text-white py-2 px-3 text-sm md:text-lg md:py-2 md:px-4 hover:opacity-85 duration-300 hover:scale-105 font-semibold rounded-3xl bg-[#465697]">
-          Source Code
-        </button>
-        </a>
+    <Reveal
+      as="article"
+      delay={0.05 * index}
+      className="group card card-hover overflow-hidden"
+    >
+      <div className={`grid ${featured ? "lg:grid-cols-[1.05fr_0.95fr]" : "lg:grid-cols-2"}`}>
+        {/* Content */}
+        <div className={`flex flex-col p-7 sm:p-9 ${featured ? "lg:order-1" : ""}`}>
+          <div className="flex items-center gap-3">
+            <span className="eyebrow">{featured ? "Featured project" : `Project ${String(index + 1).padStart(2, "0")}`}</span>
+          </div>
+
+          <h3 className="mt-4 font-display text-2xl font-normal leading-tight tracking-[-0.01em] text-paper sm:text-[28px]">
+            {project.name}
+            <span className="ml-2 align-middle text-base font-normal text-muted">
+              — {project.tagline}
+            </span>
+          </h3>
+
+          <p className="mt-4 max-w-xl text-sm leading-relaxed text-muted sm:text-[15px]">
+            {project.description}
+          </p>
+
+          <ul className="mt-6 space-y-2.5">
+            {project.highlights.map((h, i) => (
+              <li key={i} className="flex gap-3">
+                <ChevronRight size={15} className="mt-[3px] shrink-0 text-accent/80" aria-hidden="true" />
+                <span className="text-sm leading-relaxed text-muted">{h}</span>
+              </li>
+            ))}
+          </ul>
+
+          <ul className="mt-6 flex flex-wrap gap-2" aria-label={`${project.name} technologies`}>
+            {project.tech.map((t) => (
+              <li key={t} className="chip">
+                {t}
+              </li>
+            ))}
+          </ul>
+
+          <div className="mt-8 flex flex-wrap items-center gap-4 pt-2">
+            <a
+              href={project.links.github}
+              target="_blank"
+              rel="noreferrer noopener"
+              className="btn-ghost group/link"
+            >
+              <GithubIcon size={16} />
+              View on GitHub
+              <ExternalIcon
+                size={14}
+                className="text-muted transition-transform duration-300 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5"
+              />
+            </a>
+          </div>
+        </div>
+
+        {/* Visual */}
+        <div
+          className={`relative flex items-center border-t border-white/[0.07] bg-ink-900/40 p-6 sm:p-8 lg:border-t-0 ${
+            featured ? "lg:order-2 lg:border-l" : "lg:border-l"
+          }`}
+        >
+          <div className="w-full overflow-hidden rounded-xl border border-white/[0.06] bg-ink-950/60 p-4 transition-transform duration-700 ease-out group-hover:scale-[1.02]">
+            <Visual />
+          </div>
+        </div>
       </div>
-    </div>
+    </Reveal>
   );
 };
 

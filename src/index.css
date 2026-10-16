@@ -2,6 +2,282 @@
 @tailwind components;
 @tailwind utilities;
 
-* {
-    scroll-behavior: smooth;
+@layer base {
+  :root {
+    /* Brass focus ring, matching the accent token. */
+    --ring: 201 168 106;
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+
+  /* Smooth in-page navigation, but never when the user opts out of motion. */
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
+
+  body {
+    @apply bg-ink-950 font-sans text-paper antialiased;
+    overflow-x: clip;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body.nav-open {
+    overflow: hidden;
+  }
+
+  ::selection {
+    background: rgba(201, 168, 106, 0.3);
+    color: #fff;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display;
+    text-wrap: balance;
+    font-variation-settings: "SOFT" 0, "WONK" 0;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  /* Visible, consistent keyboard focus. */
+  :focus-visible {
+    outline: 2px solid rgb(var(--ring));
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #060907;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #1e3128;
+    border-radius: 9999px;
+    border: 2px solid #060907;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #2c4739;
+  }
+}
+
+@layer components {
+  .container-content {
+    @apply mx-auto w-full max-w-content px-5 sm:px-8 lg:px-10;
+  }
+
+  .section-pad {
+    @apply py-20 sm:py-24 lg:py-32;
+  }
+
+  /* Offset for the sticky header when jumping to an anchor. */
+  .section-anchor {
+    scroll-margin-top: 88px;
+  }
+
+  /*
+   * The "curtain" edge. Each full-width band carries a top hairline plus a
+   * soft upward shadow so consecutive sections read as sheets sliding over
+   * one another as the page swipes up.
+   */
+  .curtain-panel {
+    @apply relative z-10 border-t border-line;
+    box-shadow: 0 -50px 90px -70px rgba(0, 0, 0, 1);
+  }
+
+  .eyebrow {
+    @apply inline-flex items-center gap-2 font-mono text-2xs uppercase tracking-widest2 text-accent-soft;
+  }
+
+  /*
+   * Portrait treatment. The asset is already cut out, so its alpha lets the
+   * canvas through; the only thing left to do is dissolve the hard crop at the
+   * bottom of the torso into the page and keep the photo from looking pasted on
+   * with a small drop in saturation and a touch of contrast.
+   */
+  .portrait-frame {
+    -webkit-mask-image: linear-gradient(
+      to bottom,
+      #000 0%,
+      #000 72%,
+      rgba(0, 0, 0, 0) 100%
+    );
+    mask-image: linear-gradient(
+      to bottom,
+      #000 0%,
+      #000 72%,
+      rgba(0, 0, 0, 0) 100%
+    );
+  }
+  .portrait-frame img {
+    /* The source photo crops the shoulders at its own edges; fading the outer
+       few percent keeps that from reading as a straight cut against the canvas. */
+    -webkit-mask-image: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0) 0%,
+      #000 9%,
+      #000 91%,
+      rgba(0, 0, 0, 0) 100%
+    );
+    mask-image: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0) 0%,
+      #000 9%,
+      #000 91%,
+      rgba(0, 0, 0, 0) 100%
+    );
+    filter: saturate(0.96) contrast(1.03);
+  }
+
+  /* Translucent glass pane: gradient fill + inset highlight, no blur filters. */
+  .card {
+    @apply relative rounded-2xl border border-line bg-glass;
+    box-shadow: 0 1px 0 0 rgba(242, 239, 230, 0.06) inset,
+      0 34px 70px -46px rgba(0, 0, 0, 0.95);
+  }
+
+  .card-hover {
+    @apply transition duration-500 ease-out;
+  }
+  .card-hover:hover {
+    @apply -translate-y-1 border-accent/40;
+    background-image: linear-gradient(
+      180deg,
+      rgba(201, 168, 106, 0.1) 0%,
+      rgba(242, 239, 230, 0.03) 100%
+    );
+    box-shadow: 0 30px 70px -45px rgba(201, 168, 106, 0.55);
+  }
+
+  .chip {
+    @apply inline-flex items-center rounded-full border border-line bg-white/[0.03] px-3 py-1 font-mono text-2xs uppercase tracking-wider text-muted transition-colors duration-300;
+  }
+  .chip:hover {
+    @apply border-accent/40 text-paper;
+  }
+
+  /* Shared button base (grouped so the base never has to @apply a custom class). */
+  .btn,
+  .btn-primary,
+  .btn-ghost {
+    @apply inline-flex select-none items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-medium transition duration-300 ease-out;
+  }
+
+  /* Solid ivory pill — the brightest element on the page. */
+  .btn-primary {
+    @apply text-ink-950;
+    background-image: linear-gradient(180deg, #f8f5ed 0%, #e4ddca 100%);
+    box-shadow: 0 18px 44px -22px rgba(0, 0, 0, 0.95);
+  }
+
+  /* Glass pill — hairline only, like the reference navigation. */
+  .btn-ghost {
+    @apply border border-line bg-white/[0.04] text-paper backdrop-blur-md;
+  }
+
+  .btn-primary:hover {
+    box-shadow: 0 22px 54px -20px rgba(201, 168, 106, 0.6), 0 18px 44px -22px rgba(0, 0, 0, 0.95);
+    transform: translateY(-2px);
+  }
+
+  .btn-ghost:hover {
+    @apply border-accent/50 text-white;
+    background-color: rgba(242, 239, 230, 0.07);
+    transform: translateY(-2px);
+  }
+
+  .btn:active,
+  .btn-primary:active,
+  .btn-ghost:active {
+    transform: translateY(1px);
+  }
+
+  /* Visually hidden until focused. Uses clipping rather than a transform so it
+     never overlays (and never obscures) the wordmark target. */
+  .skip-link {
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    z-index: 200;
+    display: inline-flex;
+    align-items: center;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    clip-path: inset(50%);
+    border-radius: 9999px;
+    background-color: #c9a86a;
+    color: #060907;
+    font-size: 0.875rem;
+    font-weight: 500;
+  }
+  .skip-link:focus,
+  .skip-link:focus-visible {
+    width: auto;
+    height: auto;
+    padding: 0.5rem 1rem;
+    overflow: visible;
+    clip-path: none;
+  }
+}
+
+@layer utilities {
+  /* Ivory → brass sheen for the second line of the hero headline. */
+  .text-gradient {
+    background-image: linear-gradient(100deg, #f8f5ed 0%, #e2cb96 58%, #c9a86a 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .mask-fade-b {
+    -webkit-mask-image: linear-gradient(to bottom, #000 70%, transparent 100%);
+    mask-image: linear-gradient(to bottom, #000 70%, transparent 100%);
+  }
+
+  .grid-overlay {
+    background-image: linear-gradient(to right, rgba(242, 239, 230, 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(242, 239, 230, 0.05) 1px, transparent 1px);
+    background-size: 64px 64px;
+  }
+
+  .flow-line {
+    stroke-dasharray: 6 10;
+    animation: dash-flow 6s linear infinite;
+  }
+}
+
+@keyframes dash-flow {
+  to {
+    stroke-dashoffset: -160;
+  }
+}
+
+/* Respect reduced-motion globally: stop decorative/looping motion. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
 }

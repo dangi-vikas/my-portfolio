@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="Vikas Dangi monogram">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0f1a15" />
+      <stop offset="1" stop-color="#060907" />
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f2efe6" />
+      <stop offset="0.55" stop-color="#e2cb96" />
+      <stop offset="1" stop-color="#c9a86a" />
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="14" fill="url(#bg)" />
+  <rect x="0.75" y="0.75" width="62.5" height="62.5" rx="13.25" fill="none" stroke="rgba(242,239,230,0.10)" stroke-width="1.5" />
+  <path d="M17 18 L32 46 L47 18" fill="none" stroke="url(#accent)" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" />
+  <circle cx="32" cy="46" r="3.4" fill="#7fae92" />
+  <circle cx="17" cy="18" r="2.6" fill="#c9a86a" />
+  <circle cx="47" cy="18" r="2.6" fill="#c9a86a" />
+</svg>

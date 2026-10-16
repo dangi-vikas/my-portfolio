@@ -1,0 +1,18 @@
+{
+  "short_name": "Vikas Dangi",
+  "name": "Vikas Dangi — Software Engineer",
+  "description": "Backend and full-stack engineer building scalable services and AI-integrated systems with Java 21, Spring Boot, Kafka and AWS.",
+  "icons": [
+    {
+      "src": "favicon.svg",
+      "type": "image/svg+xml",
+      "sizes": "any",
+      "purpose": "any"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#060907",
+  "theme_color": "#060907",
+  "lang": "en"
+}
