@@ -3,10 +3,12 @@ import Reveal from "../ui/Reveal";
 import { ExternalIcon, GithubIcon, ChevronRight } from "../ui/Icons";
 import Snap2StayVisual from "./Snap2StayVisual";
 import NexGenVisual from "./NexGenVisual";
+import RepoPilotVisual from "./RepoPilotVisual";
 
 const VISUALS = {
   snap2stay: Snap2StayVisual,
   nexgen: NexGenVisual,
+  "repo-pilot": RepoPilotVisual,
 };
 
 const ProjectCard = ({ project, index }) => {

@@ -105,7 +105,7 @@ src/
   instead of expensive blur filters.
 - Fonts load with `display=swap`, so text never blocks on the network.
 - Images/SVGs carry explicit dimensions, so nothing can shift layout as it
-  loads; the hero portrait ships as an 880x1100 cut-out WebP (151 KB) rather
+  loads; the hero portrait ships as an 880x1100 cut-out WebP (188 KB) rather
   than the 1.8 MB original PNG.
 
 ## Deployment

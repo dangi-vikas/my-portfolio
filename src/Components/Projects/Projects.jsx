@@ -15,7 +15,7 @@ const Projects = () => (
         id="projects-heading"
         eyebrow="Selected work"
         title="Systems built end to end."
-        description="Two projects that best represent how I design services, integrate machine learning into Java backends, and reason about reliability."
+        description="Three projects that show how I design services, bring machine learning into Java backends, and reason about reliability, performance and code quality."
       />
 
       <div className="mt-14 space-y-8">

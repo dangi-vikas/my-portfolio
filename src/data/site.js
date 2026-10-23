@@ -305,6 +305,37 @@ export const projects = [
     visual: "snap2stay",
   },
   {
+    id: "repo-pilot",
+    name: "repoPilot",
+    tagline: "Local-First Code Intelligence",
+    featured: false,
+    description:
+      "A local-first code-intelligence and performance-analysis workbench that indexes a Java codebase on your machine and reports exactly what it understood, what it could not read, and what it measured — with no cloud account, API key or telemetry.",
+    highlights: [
+      "Indexes classes, interfaces, enums, records and methods, resolves the references between them, and publishes its own coverage — files read, files recorded without an analyzer, and files deliberately skipped.",
+      "Projects the index as a real interactive Code Universe built on Canvas 2D and d3-force, with search, filters and inspection, and states the slice it served — edges served versus edges indexed — instead of implying the whole repository.",
+      "Surfaces findings with severity, rule ids and line-confirmed citations, and names what each rule cannot see.",
+      "Keeps AI grounded: a local Ollama model answers, and the backend verifies every claim against indexed evidence before it reaches the screen.",
+      "Adds a Performance Lab that turns JMH recordings into measured panels, plus an analysis history of every job, attempt and duration.",
+    ],
+    tech: [
+      "Java",
+      "Spring Boot",
+      "Spring WebFlux",
+      "PostgreSQL",
+      "React",
+      "TypeScript",
+      "Canvas 2D",
+      "Ollama",
+      "JMH",
+      "Docker",
+    ],
+    links: {
+      github: "https://github.com/dangi-vikas/repo-pilot",
+    },
+    visual: "repo-pilot",
+  },
+  {
     id: "nexgen",
     name: "NexGen",
     tagline: "Pharmacy Platform",
@@ -335,7 +366,7 @@ export const projects = [
 ];
 
 export const education = {
-  degree: "Bachelor of Engineering, Mechanical Engineering",
+  degree: "Bachelor of Engineering",
   institute: "Institute of Engineering & Technology, DAVV, Indore",
   period: "2018–2022",
   score: "CGPA: 8.11/10",

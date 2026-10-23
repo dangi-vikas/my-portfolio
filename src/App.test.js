@@ -26,9 +26,10 @@ test("exposes working contact and project links", () => {
   );
 
   const repoLinks = screen.getAllByRole("link", { name: /view on github/i });
-  expect(repoLinks).toHaveLength(2);
+  expect(repoLinks).toHaveLength(3);
   expect(repoLinks[0]).toHaveAttribute("href", "https://github.com/dangi-vikas/snap2stay");
-  expect(repoLinks[1]).toHaveAttribute("href", "https://github.com/dangi-vikas/nexgen");
+  expect(repoLinks[1]).toHaveAttribute("href", "https://github.com/dangi-vikas/repo-pilot");
+  expect(repoLinks[2]).toHaveAttribute("href", "https://github.com/dangi-vikas/nexgen");
 });
 
 test("all navigation targets exist in the document", () => {
