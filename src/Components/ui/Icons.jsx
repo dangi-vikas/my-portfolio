@@ -171,6 +171,15 @@ const skillGlyphs = {
       <path d="M7 18h9.5a4 4 0 0 0 .5-7.97A6 6 0 0 0 6.3 8.5 4.5 4.5 0 0 0 7 18Z" />
     </>
   ),
+  frontend: (
+    <>
+      <rect x="3" y="4" width="18" height="16" rx="2.5" />
+      <path d="M3 9h18" />
+      <path d="M6.5 6.5h.01M9 6.5h.01" />
+      <path d="M7 12.5h10" />
+      <path d="M7 16h6" />
+    </>
+  ),
   network: (
     <>
       <circle cx="12" cy="5" r="2.4" />

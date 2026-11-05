@@ -5,14 +5,15 @@ import SectionHeading from "../ui/SectionHeading";
 import CurtainSection from "../ui/CurtainSection";
 import { SkillIcon } from "../ui/Icons";
 
-/** Bento spans so the seven groups fill the 12-column grid cleanly. */
+/** Bento spans so the eight groups fill the 12-column grid cleanly. */
 const SPANS = [
   "md:col-span-4",
   "md:col-span-8",
   "md:col-span-4",
   "md:col-span-4",
   "md:col-span-4",
-  "md:col-span-8",
+  "md:col-span-4",
+  "md:col-span-4",
   "md:col-span-4",
 ];
 

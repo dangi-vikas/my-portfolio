@@ -52,7 +52,7 @@ export const profile = {
    */
   statusLabel: "Hyderabad, India",
   tagline:
-    "Software Engineer building scalable backend systems and AI-powered experiences.",
+    "Software Engineer building scalable backend systems, React front ends, and AI-powered experiences.",
 };
 
 export const navItems = [
@@ -68,7 +68,7 @@ export const hero = {
   eyebrow: "SOFTWARE ENGINEER · JAVA BACKEND · DISTRIBUTED SYSTEMS",
   headline: ["Building reliable systems.", "Engineering what scales."],
   supporting:
-    "I'm Vikas Dangi, a Software Engineer with 4+ years of experience building backend and full-stack applications using Java, Spring Boot, reactive systems, microservices, and cloud-native technologies.",
+    "I'm Vikas Dangi, a Software Engineer with 4+ years of experience building backend and full-stack applications using Java, Spring Boot, React, reactive systems, microservices, and cloud-native technologies.",
   /*
    * Three factual cards shown along the base of the hero, echoing the
    * "destination" cards of the reference layout. Every value is drawn from the
@@ -82,6 +82,7 @@ export const hero = {
   highlight: [
     "Java 21",
     "Spring Boot",
+    "React",
     "Kafka",
     "AWS",
     "Distributed Systems",
@@ -94,12 +95,13 @@ export const about = {
   eyebrow: "About",
   heading: "Engineering beyond the endpoint.",
   paragraphs: [
-    "I'm a Software Engineer focused on building scalable backend services and reliable distributed applications. My work spans Java and Spring-based microservices, reactive APIs, event-driven architecture, caching, cloud-native deployment, and performance optimization.",
+    "I'm a Software Engineer focused on building scalable backend services and reliable distributed applications. My work spans Java and Spring-based microservices, React front ends, reactive APIs, event-driven architecture, caching, cloud-native deployment, and performance optimization.",
     "I enjoy understanding how systems behave under load, how services recover from failures, and how thoughtful engineering decisions improve reliability and maintainability.",
   ],
   facts: [
     { label: "Focus", value: "Backend · Distributed systems" },
     { label: "Core stack", value: "Java 21 · Spring Boot · Kafka" },
+    { label: "Frontend", value: "React · TypeScript" },
     { label: "Cloud", value: "AWS · Kubernetes · CI/CD" },
     { label: "Based in", value: "Hyderabad, India" },
   ],
@@ -149,11 +151,11 @@ export const experience = [
     tags: [
       "Java 21",
       "Spring WebFlux",
+      "React",
       "Kafka",
       "AWS EKS",
       "Harness",
       "Dynatrace",
-      "React",
     ],
   },
   {
@@ -193,13 +195,12 @@ export const experience = [
       },
     ],
     tags: [
+      "Java",
       "Spring Boot",
-      "Kong",
-      "OAuth",
+      "React",
       "Azure DevOps",
       "Docker",
-      "JUnit",
-      "Mockito",
+      "Azure Cloud",
     ],
   },
 ];
@@ -223,6 +224,11 @@ export const skillGroups = [
       "REST APIs",
       "Microservices",
     ],
+  },
+  {
+    title: "Frontend",
+    icon: "frontend",
+    items: ["React", "Vite", "TypeScript", "JavaScript"],
   },
   {
     title: "Messaging & caching",

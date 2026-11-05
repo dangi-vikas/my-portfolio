@@ -60,8 +60,9 @@ const About = () => (
             aria-hidden="true"
           />
           <p className="text-sm leading-snug text-muted">
-            Comfortable owning a service end to end — from API contract and data
-            model to deployment, observability, and on-call reliability.
+            Comfortable owning a feature end to end — from the React interface
+            and API contract to the data model, deployment, observability, and
+            on-call reliability.
           </p>
         </div>
       </Reveal>
