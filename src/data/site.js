@@ -284,7 +284,7 @@ export const projects = [
       "A visual property search system that lets users upload an image and discover matching Marriott properties and other places in the same destination.",
     highlights: [
       "Designed a visual property search system using Java 21, Spring Boot, and Spring WebFlux.",
-      "Integrated Python FastAPI with CLIP-based image embeddings using Hugging Face Transformers.",
+      "Integrated Python FastAPI with SigLIP (ViT-B/16) image embeddings using Hugging Face Transformers.",
       "Architected four services across two programming languages for visual search, property catalog management, image ingestion, and embedding generation.",
       "Incorporated Resilience4j circuit breakers for resilient downstream communication.",
       "Includes a vector-store ingestion workflow for image embeddings.",
@@ -295,7 +295,7 @@ export const projects = [
       "Spring WebFlux",
       "Python 3.11",
       "FastAPI",
-      "CLIP",
+      "SigLIP",
       "Hugging Face Transformers",
       "Resilience4j",
     ],
@@ -306,7 +306,7 @@ export const projects = [
   },
   {
     id: "repo-pilot",
-    name: "repoPilot",
+    name: "RepoPilot",
     tagline: "Local-First Code Intelligence",
     featured: false,
     description:
@@ -338,25 +338,26 @@ export const projects = [
   {
     id: "nexgen",
     name: "NexGen",
-    tagline: "Pharmacy Platform",
+    tagline: "Pharmacy E-Commerce Platform",
     featured: false,
     description:
-      "A pharmacy platform built using Spring Boot microservices and React.",
+      "A pharmacy e-commerce platform built as independent Spring Boot services, where checkout runs as a choreographed saga over Kafka instead of through a central orchestrator.",
     highlights: [
-      "Event-driven communication using Kafka.",
-      "Caching with Redis.",
-      "REST APIs and secure authentication.",
-      "Containerization and orchestration using Docker and Kubernetes.",
+      "Seven services — user, product, cart, inventory, order, payment and notification — each with its own SQL Server database and Flyway migrations.",
+      "Checkout is a choreographed saga over Kafka: the cart places the order, inventory reserves stock, the order confirms or cancels, payment authorizes, and confirmation clears the cart.",
+      "Compensation is the rejection path — a rejected reservation or declined payment cancels the order and releases the stock it held.",
+      "A transactional outbox in every service publishes events durably with retries, and consumers are idempotent on eventId, so a retry cannot double-reserve stock or double-charge a card.",
+      "Stock is reserved over events rather than HTTP; the only synchronous calls left are the checkout command and the product-price lookup, which need an immediate answer.",
     ],
     tech: [
       "Java",
       "Spring Boot",
-      "React",
       "Kafka",
-      "Redis",
       "SQL Server",
-      "Docker",
-      "Kubernetes",
+      "Redis",
+      "Flyway",
+      "Kong",
+      "Docker Compose",
     ],
     links: {
       github: "https://github.com/dangi-vikas/nexgen",

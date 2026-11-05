@@ -1,7 +1,7 @@
 import React from "react";
 
 /**
- * High-level illustration of repoPilot: a Java repository on disk → an index of
+ * High-level illustration of RepoPilot: a Java repository on disk → an index of
  * symbols and the references between them → the interactive Code Universe built
  * from that index. Deliberately conceptual — it is not a screenshot of the real
  * workbench, which lives in the linked repository.
@@ -41,7 +41,7 @@ const RepoPilotVisual = () => {
     <svg
       viewBox="0 0 520 320"
       role="img"
-      aria-label="Conceptual diagram of repoPilot: a Java repository on disk is indexed into symbols and references, then drawn as an interactive Code Universe of nodes and edges, with coverage, findings and performance reports beneath."
+      aria-label="Conceptual diagram of RepoPilot: a Java repository on disk is indexed into symbols and references, then drawn as an interactive Code Universe of nodes and edges, with coverage, findings and performance reports beneath."
       className="h-auto w-full"
     >
       <defs>
